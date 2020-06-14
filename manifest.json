@@ -1,0 +1,6 @@
+{
+  "name": "Google Photos Bell",
+  "version": "0.1",
+  "description": "A simple bell to know when Google Photos finishes an upload",
+  "manifest_version": 2
+}
