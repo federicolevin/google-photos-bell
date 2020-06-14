@@ -6,11 +6,25 @@
  		"scripts": ["google-photos-bell.js"],
   		"persistent": false
 	},
+	"content_scripts": [{
+		"run_at": "document_start",
+		"matches": ["*://photos.google.com/*", "*://www.photos.google.com/*"],
+		"js": [
+			"google-photos-bell.js"
+		]
+	}],
+	"permissions": [
+		"activeTab",
+		"declarativeContent",
+		"*://photos.google.com/*",
+		"*://www.photos.google.com/*"
+	],
 	"icons": {
 		"16": "icons/google-photos-bell-16.png",
 		"32": "icons/google-photos-bell-32.png",
 		"48": "icons/google-photos-bell-48.png",
 		"128": "icons/google-photos-bell-128.png"
 	},
-	"manifest_version": 2
+	"manifest_version": 2,
+	"web_accessible_resources": ["sounds/small-bell.mp3"]
 }

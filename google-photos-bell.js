@@ -4,16 +4,28 @@
 
 'use strict';
 
-chrome.runtime.onInstalled.addListener(function() {
-	var uploader = document.getElementsByClassName('gsckL');
+var observer = new MutationObserver(function(mutations) {
+	console.log("Mutation done");
 
-	if (uploader.length > 0) {
- 		alert('Showing uploader');
-	} else {
- 		alert('Not showing uploader');
+	for(let mutation of mutations) {
+		if (mutation.target.className.indexOf("TUXL9e") > -1) {
+			var bell = new Audio(chrome.runtime.getURL("sounds/small-bell.mp3"));
+			bell.play();
+		}
+
+		/*for (const node of addedNodes) {
+			if (!node.tagName) continue; // not an element
+
+			if (node.classList.contains('xfz7pe')) {
+				//Logic to determine if uploader had been active and it finished
+				var bell = new Audio(chrome.runtime.getURL("sounds/small-bell.mp3"));
+				bell.play();
+			}
+		}*/
 	}
-
-	//Logic to determine if uploader had been active and it finished
-	var bell = new Audio(chrome.runtime.getURL("sounds/small-bell.mp3"));
-	bell.play();
 });
+
+var container = document.documentElement || document.body;
+var config = { subtree: true, attributes: true };
+
+observer.observe(container, config);
