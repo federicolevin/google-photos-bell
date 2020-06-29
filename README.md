@@ -1,5 +1,5 @@
 # google-photos-bell
-A simple bell to know when Google Photos finishes an upload
+This Google Chrome extension adds a bell to know when Google Photos finishes an upload
 
 1. "git clone" this repo
 2. Go to chrome://extensions/
